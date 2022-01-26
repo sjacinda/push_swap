@@ -42,7 +42,7 @@ void pa(t_stack **stack_a, t_stack **stack_b)
 	first_b = *stack_b;
 	if (first_b == NULL)
 		return;
-	*stack_b = *stack_b->next;
+	*stack_b = (*stack_b)->next;
 	*stack_a = first_b;
 	first_b->next = first_a;
 }
