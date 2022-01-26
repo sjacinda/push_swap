@@ -20,3 +20,4 @@ void rrb(t_stack **stack);
 void rrr(t_stack **stack_a, t_stack **stack_b);
 
 t_stack *find_last(t_stack *stack);
+t_stack *find_pre_last(t_stack *stack);

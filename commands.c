@@ -85,15 +85,33 @@ void rr(t_stack **stack_a, t_stack **stack_b)
 
 void rra(t_stack **stack)
 {
+	t_stack	*first;
+	t_stack	*second;
+	t_stack *pre_last;
+	t_stack *last;
 
+	if (stack == NULL)
+		return;
+	first = *stack;
+	if (first == NULL)
+		return;
+	second = first->next;
+	pre_last = find_pre_last(*stack);
+	last = find_last(*stack);
+	if (last == first)
+		return;
+	last->next = first;
+	pre_last->next = NULL;
+	*stack = last;
 }
 
 void rrb(t_stack **stack)
 {
-
+	rra(stack);
 }
 
 void rrr(t_stack **stack_a, t_stack **stack_b)
 {
-
+	rra(stack_a);
+	rrb(stack_b);
 }
