@@ -6,7 +6,7 @@
 #    By: sjacinda <sjacinda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/13 11:52:32 by sjacinda          #+#    #+#              #
-#    Updated: 2021/10/22 19:27:23 by sjacinda         ###   ########.fr        #
+#    Updated: 2022/01/26 23:25:36 by sjacinda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ HEADER	=	libft.h
 OBJ		=	$(patsubst %.c, %.o, $(SRCS))
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -I$(HEADER)
+CFLAGS	=	-Wall -Wextra -Werror -I. -g
 
 .PHONY	:	all clean fclean re
 

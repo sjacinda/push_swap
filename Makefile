@@ -1,18 +1,25 @@
-NAME	=	libft.a
+NAME	=	push_swap
 
-SRCS	=	main.c
+SRCS	=	commands.c main.c parser.c utils.c
 
-HEADER	=	
+HEADER	=	push_swap.h
 OBJ		=	$(patsubst %.c, %.o, $(SRCS))
 
-CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -I.
+FT_LIB	=	./libft/libft.a
 
-.PHONY	:	all clean fclean re
+CC		=	gcc
+CFLAGS	=	-Wall -Wextra -Werror -I. -I./libft -g
+
+.PHONY	:	libft all clean fclean re
+
+libft:
+	$(MAKE) -C ./libft
+
+$(FT_LIB): libft
 
 all		:	$(NAME)
 
-$(NAME)	:	$(OBJ)
+$(NAME)	:	$(OBJ) $(FT_LIB)
 	$(CC) $(CFLAGS) $^ -o $@
 
 %.o		:	%.c $(HEADER)
@@ -20,8 +27,10 @@ $(NAME)	:	$(OBJ)
 
 clean	:
 	@rm -f $(OBJ)
+	@$(MAKE) clean -C ./libft
 
 fclean	:	clean
 	@ $(RM) $(NAME)
+	@$(MAKE) fclean -C ./libft
 
 re		:	fclean all

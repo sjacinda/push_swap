@@ -23,9 +23,10 @@ t_stack *new_stack(int value)
 		return (NULL);
 	new->value = value;
 	new->next = NULL;
+	return (new);
 }
 
-void	stack_add_back(t_stack **stack, t_stack **new)
+void	stack_add_back(t_stack **stack, t_stack *new)
 {
 	t_stack	*last;
 
@@ -37,5 +38,5 @@ void	stack_add_back(t_stack **stack, t_stack **new)
 		return;
 	}
 	last = find_last(*stack);
-	last->next new;
+	last->next = new;
 }

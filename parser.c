@@ -1,14 +1,14 @@
 #include "push_swap.h"
 
-t_stack	*parser(char **argv, intargc)
+t_stack	*parser(char **argv, int argc)
 {
 	int		i;
 	t_stack	*new;
 	t_stack	*stack;
 
 	if (argc < 3)
-		return (-1);
-	i = 0;
+		exit_msg("Error: Not enough arguments");
+	i = 1;
 	stack = NULL;
 	while (i < argc)
 	{
@@ -17,6 +17,7 @@ t_stack	*parser(char **argv, intargc)
 		if (new == NULL)
 			exit_msg("Error: Malloc");
 		stack_add_back(&stack, new);
+		i++;
 	}
 	check_valid_stack(stack);
 	check_sorted(stack);
@@ -25,7 +26,7 @@ t_stack	*parser(char **argv, intargc)
 
 void	exit_msg(char *msg)
 {
-	ft_putstr_fd(msg, 2);
+	ft_putendl_fd(msg, 2);
 	exit(1);
 }
 
