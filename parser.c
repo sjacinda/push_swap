@@ -6,8 +6,6 @@ t_stack	*parser(char **argv, int argc)
 	t_stack	*new;
 	t_stack	*stack;
 
-	if (argc < 3)
-		exit_msg("Error: Not enough arguments");
 	i = 1;
 	stack = NULL;
 	while (i < argc)
@@ -20,7 +18,6 @@ t_stack	*parser(char **argv, int argc)
 		i++;
 	}
 	check_valid_stack(stack);
-	check_sorted(stack);
 	return (stack);
 }
 
@@ -47,23 +44,16 @@ void	check_valid_stack(t_stack *stack)
 	}
 }
 
-void	check_sorted(t_stack *stack)
+int	check_sorted(t_stack *stack)
 {
-	t_stack	*tmp;
-	
-	while(stack)
+	while(stack->next)
 	{
-		tmp = stack->next;
-		while(tmp)
-		{
-			if (stack->value < tmp->value)
-				tmp = tmp->next;
-			else
-				return;
-		}
-		stack = stack->next;
+		if ((stack->next->index - stack->index) == 1)
+			stack = stack->next;
+		else
+			return (0);
 	}
-	exit(0);
+	return (1);
 }
 
 void	check_valid_number(char *number)
