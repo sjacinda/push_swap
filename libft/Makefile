@@ -6,7 +6,7 @@
 #    By: sjacinda <sjacinda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/13 11:52:32 by sjacinda          #+#    #+#              #
-#    Updated: 2022/01/26 23:25:36 by sjacinda         ###   ########.fr        #
+#    Updated: 2022/01/27 17:39:45 by sjacinda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,21 +30,22 @@ OBJ		=	$(patsubst %.c, %.o, $(SRCS))
 
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -I. -g
+RM		=	rm -rf
 
-.PHONY	:	all clean fclean re
+.PHONY:	all clean fclean re
 
-all		:	$(NAME)
+all:	$(NAME)
 
-$(NAME)	:	$(OBJ) $(HEADER)
+$(NAME):	$(OBJ) $(HEADER)
 	ar rcs $(NAME) $?
 
-%.o		:	%.c $(HEADER)
+%.o:	%.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean	:
-	@rm -f $(OBJ)
+clean:
+	@$(RM) $(OBJ)
 
-fclean	:	clean
-	@ $(RM) $(NAME)
+fclean:	clean
+	@$(RM) $(NAME)
 
-re		:	fclean all
+re:	fclean all

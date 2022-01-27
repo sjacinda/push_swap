@@ -1,36 +1,47 @@
 NAME	=	push_swap
-
-SRCS	=	commands.c main.c parser.c utils.c
+NAME_B	=	checker
 
 HEADER	=	push_swap.h
-OBJ		=	$(patsubst %.c, %.o, $(SRCS))
-
 FT_LIB	=	./libft/libft.a
+
+SRCS	=	commands.c parser.c utils.c sorting.c main.c
+SRCS_B	=	commands.c parser.c utils.c sorting.c bonus.c
+
+OBJ		=	$(SRCS:.c=.o)
+OBJ_B	=	$(SRCS_B:.c=.o)
 
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -I. -I./libft -g
+RM		=	rm -rf
 
-.PHONY	:	libft all clean fclean re
+.PHONY:	all clean fclean re libft bonus
+
+all:	$(NAME)
+
+$(NAME):	$(OBJ) $(FT_LIB)
+	ar -rcs $(NAME) $?
+
+$(NAME_B):	$(OBJ_B) $(FT_LIB)
+	ar -rcs $(NAME) $?
 
 libft:
-	$(MAKE) -C ./libft
+	@$(MAKE) -C ./libft
 
-$(FT_LIB): libft
+$(FT_LIB):	libft
 
-all		:	$(NAME)
-
-$(NAME)	:	$(OBJ) $(FT_LIB)
-	$(CC) $(CFLAGS) $^ -o $@
-
-%.o		:	%.c $(HEADER)
+%.o:	%.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean	:
-	@rm -f $(OBJ)
+bonus:	$(NAME_B)
+
+clean:
+	@$(RM) $(OBJ)
+	@$(RM) $(OBJ_B)
 	@$(MAKE) clean -C ./libft
 
-fclean	:	clean
-	@ $(RM) $(NAME)
+fclean:	clean
+	@$(RM) $(NAME)
+	@$(RM) $(NAME_B)
 	@$(MAKE) fclean -C ./libft
 
-re		:	fclean all
+re:	fclean all

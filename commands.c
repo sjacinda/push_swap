@@ -18,7 +18,7 @@ void sa(t_stack **stack)
 	first->next = third;
 	second->next = first;
 	*stack = second;
-}
+}∑
 
 void sb(t_stack **stack)
 {
