@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjacinda <sjacinda@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/27 18:17:27 by sjacinda          #+#    #+#             */
+/*   Updated: 2022/01/27 18:31:54 by sjacinda         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdio.h>
 
@@ -74,5 +86,5 @@ void	big_sort(t_stack *stack_a, t_stack *stack_b, int size, int max_bits)
 
 void	small_sort(t_stack *stack_a, t_stack *stack_b)
 {
-
+	
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjacinda <sjacinda@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/27 18:16:40 by sjacinda          #+#    #+#             */
+/*   Updated: 2022/01/27 18:23:09 by sjacinda         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdio.h>
 
@@ -40,7 +52,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack;
 
-	if (argc = 3)
+	if (argc == 3)
 		exit_msg("Error: Not enough arguments");
 	stack = parser(argv, argc);
 	indexator(stack);

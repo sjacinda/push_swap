@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjacinda <sjacinda@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/27 18:17:13 by sjacinda          #+#    #+#             */
+/*   Updated: 2022/01/27 18:24:19 by sjacinda         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_stack	*parser(char **argv, int argc)
@@ -31,10 +43,10 @@ void	check_valid_stack(t_stack *stack)
 {
 	t_stack	*tmp;
 
-	while(stack)
+	while (stack)
 	{
 		tmp = stack->next;
-		while(tmp)
+		while (tmp)
 		{
 			if (stack->value == tmp->value)
 				exit_msg("Error: Dublicate");
@@ -46,7 +58,7 @@ void	check_valid_stack(t_stack *stack)
 
 int	check_sorted(t_stack *stack)
 {
-	while(stack->next)
+	while (stack->next)
 	{
 		if ((stack->next->index - stack->index) == 1)
 			stack = stack->next;
@@ -69,7 +81,7 @@ void	check_valid_number(char *number)
 	}
 	while (number[i])
 	{
-		if(!ft_isdigit((int)number[i]))
+		if (!ft_isdigit((int)number[i]))
 			exit_msg("Error: Invalid argument");
 		i++;
 	}

@@ -1,4 +1,19 @@
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjacinda <sjacinda@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/27 18:17:21 by sjacinda          #+#    #+#             */
+/*   Updated: 2022/01/27 18:34:10 by sjacinda         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include "libft.h"
 
 typedef struct	s_stack
 {
@@ -31,3 +46,5 @@ t_stack	*new_stack(int value);
 t_stack	*find_last(t_stack *stack);
 t_stack	*find_pre_last(t_stack *stack);
 t_stack	*parser(char **argv, int argc);
+
+#endif
